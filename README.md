@@ -1,12 +1,18 @@
-========Plane Fight=======
+Plane Fight
+===========
+
+
+Description
+-----------
 Plane fight game for dodging bullets and incoming enemy planes.
 
 
-=======Installing=======
-1.Clone the repo.
-2.npm install the dependencies.
+Installing
+----------
+* Clone the repo.
+* `npm install` the dependencies.
 
 
-
-=======Licence======
+Licence
+-------
 This is under MIT Licence.
