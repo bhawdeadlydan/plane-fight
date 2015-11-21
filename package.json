@@ -1,0 +1,28 @@
+{
+  "name": "plane-fight",
+  "version": "1.0.0",
+  "description": "Plane fight game",
+  "main": "index.js",
+  "directories": {
+    "test": "test",
+    "src":"src"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bhawdeadlydan/plane-fight.git"
+  },
+  "keywords": [
+    "plane",
+    "fight",
+    "box2d"
+  ],
+  "author": "Bhawesh Kumar Singh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bhawdeadlydan/plane-fight/issues"
+  },
+  "homepage": "https://github.com/bhawdeadlydan/plane-fight#readme"
+}
