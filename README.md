@@ -12,7 +12,8 @@ Installing
 * Clone the repo.
 * Install node.
 * Run `npm install -g grunt-cli`.
-* Run `grunt` to install all dependencies.
+* Run `grunt` to install all dependencies and build.
+* Run `grunt serve` to load the app.
 
 
 Licence

@@ -8,7 +8,7 @@ function Game() {
     };
     this.initEnvironment = function() {
         var renderer = PIXI.autoDetectRenderer(800, 600,{backgroundColor : 0x1099bb});
-        $('body').appendChild(renderer.view);
+        $('body').append(renderer.view);
 
         var stage = new PIXI.Container();
 
@@ -29,7 +29,6 @@ function Game() {
         function animate() {
             requestAnimationFrame(animate);
 
-            // just for fun, let's rotate mr rabbit a little
             bunny.rotation += 0.1;
 
             // render the container
@@ -38,8 +37,7 @@ function Game() {
             console.log('animating');
         }
 
-        // start animating
-                animate();
+        animate();
     };
 }
 var game = new Game();
