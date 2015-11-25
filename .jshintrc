@@ -20,6 +20,7 @@
   "trailing": true,
   "smarttabs": true,
   "globals": {
-    
+    "PIXI": false,
+    "$": false
   }
 }

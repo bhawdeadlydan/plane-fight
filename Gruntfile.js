@@ -30,9 +30,9 @@ config.concat = {
                 }
     },
     dist: {
-          src: ['src/**/*.js', 'lib/**/*.js'],
+          src: ['src/**/*.js'],
           dest: 'dist/game.js'
-        },
+        }
 };
 
 config.uglify = {
@@ -46,6 +46,35 @@ config.uglify = {
     }
 };
 
+config.connect = {
+    server: {
+        options: {
+            port: 3000,
+            base: {
+                path: '.',
+                hostname: 'localhost'
+            },
+            keepalive: true
+        }
+    }
+};
+
+config.watch =  {
+    options: {
+        event: ['all']
+    },
+    src: {
+        files: '../src/**/*.js',
+        tasks: ['concat']
+    }
+};
+
+config.open =  {
+    all: {
+        path: 'http://localhost:<%= connect.server.options.port%>/dist/index.html'
+    }
+};
+
 module.exports = function(grunt) {
 
    config.pkg = grunt.file.readJSON('package.json');
@@ -53,8 +82,10 @@ module.exports = function(grunt) {
 
    require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
+//   grunt.registerTask('build', ['exec:install_dependencies', 'jshint', 'exec:clean_dist', 'concat', 'uglify:minify']);
+   grunt.registerTask('compile', ['jshint', 'concat']);
+   grunt.registerTask('build', ['exec:install_dependencies', 'compile']);
    grunt.registerTask('default', 'build');
-   grunt.registerTask('build', ['exec:install_dependencies', 'jshint', 'exec:clean_dist', 'concat', 'uglify:minify']);
-   grunt.registerTask('serve', ['build']);
+   grunt.registerTask('serve', ['build', 'open', 'connect']);
 
 };
