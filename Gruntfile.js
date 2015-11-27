@@ -31,8 +31,16 @@ config.concat = {
     },
     dist: {
           src: ['src/**/*.js'],
-          dest: 'dist/game.js'
+          dest: 'dist/js/game.js'
         }
+};
+
+config.copy = {
+    libs: {
+        expand: true,
+        src: ['lib/**'],
+        dest: 'dist/js/'
+    }
 };
 
 config.uglify = {
@@ -41,7 +49,7 @@ config.uglify = {
     },
     minify: {
         files: {
-            'dist/game.min.js': ['src/**/*.js', 'lib/**/*.js']
+            'dist/js/game.min.js': ['src/**/*.js', 'lib/**/*.js']
         }
     }
 };
