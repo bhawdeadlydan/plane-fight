@@ -12,9 +12,13 @@ Installing
 * Clone the repo.
 * Install node.
 * Run `npm install -g grunt-cli`.
-* Run `grunt` to install all dependencies and build.
-* Run `grunt serve` to load the app.
-
+* Building for web
+..* Run `grunt` to install all dependencies and build.
+..* Run `grunt serve` to load the app in the browser.
+* Building for mobile 
+..* Install cordova cli using `npm install -g cordova`.
+..* `cd planefight`
+..* Add the ios platform using `cordova platform add ios` and Android platform using `cordova platform add android`.
 
 Licence
 -------
