@@ -14,24 +14,24 @@ function Game() {
 
         var texture = PIXI.Texture.fromImage('../assets/fighter-plane.png');
 
-        var bunny = new PIXI.Sprite(texture);
+        var player = new PIXI.Sprite(texture);
 
-        bunny.anchor.x = 0.5;
-        bunny.anchor.y = 0.5;
+        player.anchor.x = 0.5;
+        player.anchor.y = 1;
 
-        // move the sprite to the center of the screen
-        bunny.position.x = 200;
-        bunny.position.y = 150;
+        // move the player to the center of the screen
+        player.position.x = 400;
+        player.position.y = 600;
 
-        stage.addChild(bunny);
+        stage.addChild(player);
 
 
         function animate() {
             requestAnimationFrame(animate);
 
-            bunny.rotation += 0.1;
+//            player.rotation += 0.1;
 
-            // render the container
+//             render the container
             renderer.render(stage);
 
             console.log('animating');
