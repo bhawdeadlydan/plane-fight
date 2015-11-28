@@ -6,3 +6,4 @@
 *.log
 dist/
 planefight/platforms
+planefight/www

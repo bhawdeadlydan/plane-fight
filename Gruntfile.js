@@ -42,8 +42,8 @@ config.concat = {
                 }
     },
     dist: {
-          src: ['src/**/*.js'],
-          dest: 'dist/js/game.js'
+          'dist/js/game.js': ['src/**/*.js'],
+          'dist/index.html': 'src/index.html'
         }
 };
 
