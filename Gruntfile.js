@@ -17,6 +17,18 @@ config.exec = {
     },
     clean_dist: {
         cmd: 'rm -rf dist/*'
+    },
+    build_binaries_ios: {
+        cmd: 'cd planefight; cordova build ios; cd ..'
+    },
+    build_binaries_android: {
+        cmd: 'cd planefight; cordova build android; cd ..'
+    },
+    open_emulator_ios: {
+        cmd: 'cd planefight; cordova emulate ios; cd ..'
+    },
+    open_emulator_android: {
+        cmd: 'cd planefight; cordova emulate android; cd ..'
     }
 };
 
@@ -36,10 +48,21 @@ config.concat = {
 };
 
 config.copy = {
-    libs: {
+    lib: {
         expand: true,
         src: ['lib/**'],
-        dest: 'dist/js/'
+        dest: 'dist/'
+    },
+    assets: {
+        expand: true,
+        src: ['assets/**'],
+        dest: 'dist/'
+    },
+    mobile_cordova: {
+        expand: true,
+        cwd: 'dist/',
+        src: '**',
+        dest: 'planefight/www/'
     }
 };
 
@@ -88,12 +111,16 @@ module.exports = function(grunt) {
    config.pkg = grunt.file.readJSON('package.json');
    grunt.initConfig(config);
 
+   var mobile_env = grunt.option('env') || 'android';
+
    require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
 //   grunt.registerTask('build', ['exec:install_dependencies', 'jshint', 'exec:clean_dist', 'concat', 'uglify:minify']);
-   grunt.registerTask('compile', ['jshint', 'concat']);
+   grunt.registerTask('compile', ['jshint', 'concat', 'copy:lib', 'copy:assets']);
    grunt.registerTask('build', ['exec:install_dependencies', 'compile']);
    grunt.registerTask('default', 'build');
    grunt.registerTask('serve', ['build', 'open', 'connect']);
+   grunt.registerTask('build_mobile', ['copy:mobile_cordova', 'exec:build_binaries_' + mobile_env]);
+   grunt.registerTask('serve_mobile', ['exec:open_emulator_' + mobile_env]);
 
 };
