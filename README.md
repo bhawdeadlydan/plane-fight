@@ -20,6 +20,7 @@ Installing
     - Install the Android sdk and latest xcode.
     - `cd planefight`.
     - Add the ios platform using `cordova platform add ios` and Android platform using `cordova platform add android`.
+* `npm install -g appium` for functional tests.
 
 Licence
 -------

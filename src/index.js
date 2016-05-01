@@ -7,7 +7,7 @@ function Game() {
         console.log('playing games --- with' + this.lives + 'against' + this.enemies);
     };
     this.initEnvironment = function() {
-        var renderer = PIXI.autoDetectRenderer(800, 600,{backgroundColor : 0x1099bb});
+        var renderer = PIXI.autoDetectRenderer(800, 600,{backgroundColor : 0x93CDD9});
         $('body').append(renderer.view);
 
         var stage = new PIXI.Container();

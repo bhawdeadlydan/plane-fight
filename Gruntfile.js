@@ -34,17 +34,22 @@ config.exec = {
 
 config.concat = {
     options: {
-        separator: ';',
-        banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - ' +
-                '<%= grunt.template.today("mm-dd-yyyy") %> */',
+        separator: ";",
         process: function(src, path) {
-                  return '\n/* Source: ' + path + ' */\n' + src;
+                  if(path.endsWith(".js")) {
+                    return "\n/* Source: " + path + " */\n" + src;
+                    }
+                  return src;
                 }
     },
-    dist: {
-          'dist/js/game.js': ['src/**/*.js'],
-          'dist/index.html': 'src/index.html'
-        }
+    start: {
+          src: "src/index.html",
+          dest:"dist/index.html"
+        },
+    code: {
+        src: ["src/**/*.js"],
+        dest: "dist/js/game.js"
+    }
 };
 
 config.copy = {
@@ -116,7 +121,7 @@ module.exports = function(grunt) {
    require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
 //   grunt.registerTask('build', ['exec:install_dependencies', 'jshint', 'exec:clean_dist', 'concat', 'uglify:minify']);
-   grunt.registerTask('compile', ['jshint', 'concat', 'copy:lib', 'copy:assets']);
+   grunt.registerTask('compile', ['jshint', 'exec:clean_dist', 'concat:start', 'concat:code', 'copy:lib', 'copy:assets', ]);
    grunt.registerTask('build', ['exec:install_dependencies', 'compile']);
    grunt.registerTask('default', 'build');
    grunt.registerTask('serve', ['build', 'open', 'connect']);
