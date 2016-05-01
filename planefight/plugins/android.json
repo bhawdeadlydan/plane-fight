@@ -9,6 +9,9 @@
     "installed_plugins": {
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.game.planefight"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.game.planefight"
         }
     },
     "dependent_plugins": {}
